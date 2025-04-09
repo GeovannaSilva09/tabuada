@@ -5,6 +5,7 @@ public class Tabuada {
 	private double multiplicando;
 	private double minimoMultiplicador;
 	private double maximoMultiplicador;
+	
 
        
 	public void setMultiplicando (double multiplicando) {
