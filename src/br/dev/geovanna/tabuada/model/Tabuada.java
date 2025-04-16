@@ -35,6 +35,10 @@ public class Tabuada {
 	 
 	public void mostrarTabuada() {
 		
+		double tamanho = maximoMultiplicador - minimoMultiplicador + 1;
+		
+		String[] tabuada = new String[(int) tamanho];   
+		
 		double contador = minimoMultiplicador;
 		while (contador <= maximoMultiplicador) {
 			double produto = multiplicando * contador;
