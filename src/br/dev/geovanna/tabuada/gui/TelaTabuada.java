@@ -25,8 +25,8 @@ public class TelaTabuada {
       private JTextField textMaxMultiplicador;
       private JButton buttonCalcular;
       private JButton buttonLimpar;
-	  private JScrollPane ScrollTabuada;
-	  private JList ListTabuada;
+	  private JScrollPane scrollTabuada;
+	  private JList listTabuada;
 	  
 	  private void exibirTabuada() {
 		  
@@ -74,11 +74,10 @@ public class TelaTabuada {
 		  buttonLimpar.setBounds(135, 155, 100, 30);
 		  
 		  //Criar o objeto scroll
-		  
-		   ListTabuada = new JList();
+		   listTabuada = new JList();
 		   
-		   ScrollTabuada = new JScrollPane(ListTabuada); 
-		   ScrollTabuada.setBounds(20, 205, 210, 435);
+		   scrollTabuada = new JScrollPane(listTabuada); 
+		   scrollTabuada.setBounds(20, 205, 210, 435);
 		  
 		  // Obtemos o painel de conteúdo e adicionamos o labelMultiplicando nesse painel
 		  tela.getContentPane().add(labelMultiplicando);
@@ -93,7 +92,7 @@ public class TelaTabuada {
 		  tela.getContentPane().add(buttonCalcular);
 		  tela.getContentPane().add(buttonLimpar);
 		  
-		  tela.getContentPane().add(ScrollTabuada);
+		  tela.getContentPane().add(scrollTabuada);
 		  
 		  
 		  //Adicionar ouvintes de evento aos botões
@@ -116,10 +115,10 @@ public class TelaTabuada {
 				double maxDouble = Double.valueOf(max);
 				tabuada.setMaximoMultiplicador(maxDouble);
 				
+				String[] tabuadaResultado = tabuada.mostrarTabuada();
+				listTabuada.setListData(tabuadaResultado);
 				
-				tabuada.mostrarTabuada();
-				
-				
+
 			}
 		});
 		  
@@ -131,6 +130,9 @@ public class TelaTabuada {
 				textMultiplicando.setText(null);
 				textMinMultiplicador.setText(null);
 				textMaxMultiplicador.setText(null);
+				
+				listTabuada.setListData(new String [0]);
+				
 				textMultiplicando.requestFocus();
 				
 		
